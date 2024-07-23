@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'username'=>'required|min:3|max:255|unique:users',
             // 'email'=>'required|email|unique:users',
             // 'password'=>'required|min:5|max:255',
-            'image'=>'image:png,svg,jpg|file:jpg,png,svg'
+            'image'=>'image|file'
         ];
 
         if($request->username !=$user->username){
@@ -92,8 +92,8 @@ class RegisterController extends Controller
         // $rules['password']= Hash::make($rules['password']);
 
         $validateData=$request->validate($rules);
-
         User::where('id',$user->id)->update($validateData);
+
 
         return redirect('/Main')->with('success','User has been updated!');
 

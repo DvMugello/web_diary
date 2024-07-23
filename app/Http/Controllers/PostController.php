@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-      return view('Main.index',[
+      return view('Main.user.index',[
             'title'=>'My Diary',
              'posts'=> Post::where('user_id', auth()->user()->id)->get(),
         ]);
@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('Main.create',[
+        return view('Main.user.create',[
             'title'=>'Create Diary'
         ]);
     }
@@ -52,7 +52,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('Main.show',[
+        return view('Main.user.show',[
             'title'=>' Diary Show',
             'posts'=> Post::where('user_id', auth()->user()->id)->get(),
             'post'=> $post
@@ -64,8 +64,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('Main.edit',[
+        return view('Main.user.edit',[
             'title'=>'Edit Diary',
+            // 'posts'=> Post::where('user_id', auth()->user()->id)->get(),
             'post'=>$post
         ]);
     }
@@ -92,6 +93,21 @@ class PostController extends Controller
         Post::where('id',$post->id)->update($validateData);
 
         return redirect ('/Main')->with('success','Diary has been updated!');
+        // $validateData = $request->validate([
+        //     'title'=>'required|max:255',
+        //     'date'=>'required',
+        //     'body'=>'required'
+        // ]);
+        //  if($request->slug != $post->slug){
+        //     $validateData['slug'] = 'required|unique:posts';
+        // }
+
+        // $validateData['user_id']=auth()->user()->id;
+
+        // // Post::update($validateData);
+        // Post::where('id',$post->id)->update($validateData);
+
+        // return redirect('/Main')->with('success','Diary has been updated!');
     }
 
     /**
@@ -99,8 +115,11 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        Post::destroy($post->id);
+        // Post::destroy($post->id);
 
+        // return redirect ('/Main')->with('success','Diary has been deleted!');
+
+        Post::destroy($post->id);
         return redirect ('/Main')->with('success','Diary has been deleted!');
     }
 }

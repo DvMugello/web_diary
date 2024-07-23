@@ -3,6 +3,7 @@
 @section('container')
     <div class="row justify-content-center">
         <div class="col-lg-5">
+            <div class="card">
             <main class="form-registration-100 m-0">
                 <form method="POST" action="/Register" enctype="multipart/form-data">
                     @csrf
@@ -49,7 +50,7 @@
                     <div class="mb-2">
                         <label for="image" class="form-label">Image Profile</label>
                         <input type="file" id="image" name="image"
-                            class="form-control  @error('image')
+                            class="form-control dropify @error('image')
                         is-invalid
                         @enderror">
                         @error('image')
@@ -62,6 +63,7 @@
                 </form>
                 <small class="d-blox text-center mt-3">Already registered <a href="/Login">Login</a></small>
             </main>
+        </div>
         </div>
     </div>
 @endsection

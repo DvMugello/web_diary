@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-primary ">
+<nav class="navbar fixed-top navbar-expand-md bg-primary mb-3">
     <div class="container">
       <a class="navbar-brand text-white border border-0 " href="/" style="font-family: 'Times New Roman', Times, serif">DiaryKita</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

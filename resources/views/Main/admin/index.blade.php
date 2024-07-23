@@ -14,7 +14,7 @@
 
         <div class="table-responsive small col-lg-auto m-5">
             <a href="{{ route('Main.create')}}" class="btn btn-primary mb-2 mt-3" style="font-family: 'Times New Roman', Times, serif">Create New Diary</a>
-            <table class="table table-striped table-sm mb-md-5  ">
+            <table class="table table-striped table-sm mb-md-5 col-lg-auto">
                 <thead>
                     <tr>
                         <th scope="col-md-auto">#</th>
