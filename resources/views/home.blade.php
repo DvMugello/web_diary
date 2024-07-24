@@ -4,7 +4,6 @@
   <h1 class="visually-hidden">Selamat Datang Di My Diary</h1>
 
   <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mt-1" src="{{ asset('img/logo.png') }}" alt="img" width="200" height="200">
     <h1 class="display-5 ms-2 fw-bold text-success mt-0 mb-3">Selamat Datang Di My Diary</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4 fw-bold fs-6 text-success" >Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>

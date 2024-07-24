@@ -93,21 +93,7 @@ class PostController extends Controller
         Post::where('id',$post->id)->update($validateData);
 
         return redirect ('/Main')->with('success','Diary has been updated!');
-        // $validateData = $request->validate([
-        //     'title'=>'required|max:255',
-        //     'date'=>'required',
-        //     'body'=>'required'
-        // ]);
-        //  if($request->slug != $post->slug){
-        //     $validateData['slug'] = 'required|unique:posts';
-        // }
-
-        // $validateData['user_id']=auth()->user()->id;
-
-        // // Post::update($validateData);
-        // Post::where('id',$post->id)->update($validateData);
-
-        // return redirect('/Main')->with('success','Diary has been updated!');
+        
     }
 
     /**

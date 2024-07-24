@@ -146,6 +146,9 @@
     <script>
         $('.dropify').dropify();
     </script>
+    <script>
+        $app->configure('debugbar');
+    </script>
 </body>
 
 </html>

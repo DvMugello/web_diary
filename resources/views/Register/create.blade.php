@@ -3,7 +3,6 @@
 @section('container')
     <div class="row justify-content-center">
         <div class="col-lg-5">
-            <div class="card">
             <main class="form-registration-100 m-0">
                 <form method="POST" action="/Register" enctype="multipart/form-data">
                     @csrf
@@ -63,7 +62,6 @@
                 </form>
                 <small class="d-blox text-center mt-3">Already registered <a href="/Login">Login</a></small>
             </main>
-        </div>
         </div>
     </div>
 @endsection

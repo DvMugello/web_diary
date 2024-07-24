@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -55,5 +59,21 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+    public function getGetRoleAttribute()
+    {
+        return $this->getRoleNames()->first();
+    }
+    public function getPhoto($bg = 'F98502', $color = 'FFF')
+    {
+        $buildQueryString = str_replace(' ', '+', $this->name);
+        $mediaItems = $this->getFirstMediaUrl('avatar');
+        $imgDefault = "https://ui-avatars.com/api/?background=$bg&color=$color&name={$buildQueryString}";
+
+        if ($mediaItems) {
+            return $mediaItems;
+        } else {
+            return $imgDefault;
+        }
     }
 }

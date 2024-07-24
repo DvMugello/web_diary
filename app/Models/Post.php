@@ -30,8 +30,4 @@ class Post extends Model
      return Carbon::parse($this->date)->isoFormat('DD-MM-YYYY');
     }
 
-    public function getGetRoleAttribute()
-    {
-        return $this->getRoleNames()->first();
-    }
 }

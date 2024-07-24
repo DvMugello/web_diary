@@ -7,7 +7,7 @@
                 <main class="col-md-auto m-md-3 col-lg-auto px-md-0 ">
 
                     <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 mt-3 border-bottom">
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="fs-4 fw-bold text-dark" style="font-family: 'Times New Roman', Times, serif">Diary
                             {{ auth()->user()->name }}</h1>
                     </div>
@@ -40,9 +40,9 @@
 
                                         <td><a href="{{ route('Main.show', ['Main']) }}" class="badge bg-info"><i
                                                     class="bi bi-eye"></i></a></td>
-                                        <td><a href="{{ route('Main.edit', ['Main']) }}" class="badge bg-warning"><i
+                                        <td><a href="{{ route('Main.edit', $post->id) }}" class="badge bg-warning"><i
                                                     class="bi bi-plus-circle"></i></a></td>
-                                        <form action="{{ route('Main.destroy', ['Main']) }}" method="post" class="d-inline">
+                                        <form action="{{ route('Main.destroy', $post->id) }}" method="post" class="d-inline">
                                             @method('delete')
                                             @csrf
                                             <td>

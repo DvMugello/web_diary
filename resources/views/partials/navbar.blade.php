@@ -12,6 +12,11 @@
           <li class="nav-item px-2">
             <a class="nav-link text-white text-uppercase fs-6" style="--bs-link-hover-color"  href="/profil">Profil</a>
           </li>
+          @role('admin')
+          <li class="nav-item px-2">
+            <a class="nav-link text-white text-uppercase fs-6" style="--bs-link-hover-color"  href="/Main/admin">Admin</a>
+          </li>
+          @endrole
 
           @auth()
           <form action="/logout" method="post">
