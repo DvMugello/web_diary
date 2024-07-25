@@ -9,9 +9,9 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 // $role = Role::create(['name' => 'admin']);
+// $role = Role::create(['name' => 'writer']);
 // $permission = Permission::create(['name' => 'showing user']);
 
-// $role = Role::create(['name' => 'writer']);
 // $permission = Permission::create(['name' => 'write diary']);
 
 // $role->givePermissionTo($permission);
@@ -59,10 +59,10 @@ class RegisterController extends Controller
         //  }
 
         $user=User::create([
-            'name'=>'required|max:255',
-            'username'=>'required|min:3|max:255|unique:users',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|min:5|max:255',
+            'name'=> $request->name,
+            'username'=>$request->username,
+            'email'=>$request->email,
+            'password'=>$request->password,
         ]);
 
         if ($request->hasFile('image')) {
@@ -102,24 +102,68 @@ class RegisterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user , $id)
     {
         // return request()->all();
-        $rules =[
-            'name'=>'required|max:255',
+        // $rules =[
+        //     'name'=>'required|max:255',
+        //     'username'=>'required|min:3|max:255|unique:users',
+        //     // 'email'=>'required|email|unique:users',
+        //     // 'password'=>'required|min:5|max:255',
+        //     'image'=>'image|file'
+        // ];
+
+        // if($request->username !=$user->username){
+        //     $rules['username']='required|min:3|max:255|unique:users';
+        // }
+        // if ($request->file('image')) {
+        //     $validateData ['image'] = $request->file('image')->store('profil-images');
+        //  }
+        // $rules['password']= Hash::make($rules['password']);
+
+        $rules = [
+            'name' => 'required|max:255',
             'username'=>'required|min:3|max:255|unique:users',
-            // 'email'=>'required|email|unique:users',
-            // 'password'=>'required|min:5|max:255',
-            'image'=>'image|file'
+            'email'=>'required|email|unique:users' . $id,
+            'password'=>'required|min:5|max:255',
+            // 'image'=>'image|file'
         ];
 
-        if($request->username !=$user->username){
-            $rules['username']='required|min:3|max:255|unique:users';
+        // cek apakah ada request image
+        if ($request->hasFile('image')) {
+            // jika ada, tambahkan rules image
+            $rules['image'] = 'image|file';
         }
-        if ($request->file('image')) {
-            $validateData ['image'] = $request->file('image')->store('profil-images');
-         }
-        // $rules['password']= Hash::make($rules['password']);
+
+        $user = User::findOrFail($id);
+
+        $updateData = [
+            'name'=> $request->name,
+            'username'=>$request->username,
+            'email'=>$request->email,
+            // 'password'=>$request->password,
+        ];
+
+        if ($request->password) {
+            $updateData['password'] = Hash::make($request->password); // enkripsi password
+        }
+
+        $user->update($updateData);
+
+        if ($request->password) {
+            $user->update([
+                'password' => Hash::make($request->password), // enkripsi password
+            ]);
+        }
+
+        if ($request->hasFile('image')) {
+            // hapus image lama
+            $user->clearMediaCollection('image');
+
+            // upload image baru
+            $user->addMedia($request->image)
+                ->toMediaCollection('image');
+        }
 
         $validateData=$request->validate($rules);
         User::where('id',$user->id)->update($validateData);

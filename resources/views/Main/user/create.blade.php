@@ -16,7 +16,7 @@
                     @endif
                     <div class="table-responsive small col-lg-auto">
                         <table class="table table-striped table-sm">
-                            <form method="post" action="/Main" enctype="multipart/form-data">
+                            <form method="post" action="/Main/user" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Judul</label>

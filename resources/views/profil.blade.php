@@ -9,7 +9,7 @@
         </div>
         <h3 class="text-center mt-5 fs-4">{{ auth()->user()->name }}</h3>
         <a href="/" class="text-center text-secondary mb-3 fs-5 text-decoration-none">{{ auth()->user()->email }}</a>
-        <h4 class="text-center mt-md-5"><a href="/avatar"
+        <h4 class="text-center mt-md-5"><a href="/Main/"
                 class="text-decoration-none text-dark fs-5 mt-md-5">Edit Profil</a></h4>
     </div>
 @endsection

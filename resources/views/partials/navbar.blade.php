@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item px-2">
-            <a class="nav-link text-white text-uppercase fs-6" style="--bs-link-hover-color" aria-current="page" href="/Main">Home</a>
+            <a class="nav-link text-white text-uppercase fs-6" style="--bs-link-hover-color" aria-current="page" href="/Main/user">Home</a>
           </li>
           <li class="nav-item px-2">
             <a class="nav-link text-white text-uppercase fs-6" style="--bs-link-hover-color"  href="/profil">Profil</a>

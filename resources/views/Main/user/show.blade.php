@@ -24,7 +24,7 @@
                                         {{-- <h1>{{ auth()->user()->get_role }}</h1> --}}
 
 
-                                        <a href="{{ route('Main.index') }}" class="btn btn-success"><i
+                                        <a href="{{ route('user.show') }}" class="btn btn-success"><i
                                                 class="bi bi-arrow-left"></i>
                                             Back To
                                             All My Posts</a>

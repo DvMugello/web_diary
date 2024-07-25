@@ -1,8 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <main class="col-md-auto m-md-5 col-lg-auto px-md-0 ">
-        {{-- <h1>{{ auth()->user()->get_role }}</h1> --}}
+    {{-- <main class="col-md-auto m-md-5 col-lg-auto px-md-0 ">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 mt-3 border-bottom">
             <h1 class="fs-4 fw-bold text-dark" style="font-family: 'Times New Roman', Times, serif">Diary {{ auth()->user()->name }}</h1>
         </div>
@@ -56,5 +55,5 @@
                 </tbody>
             </table>
         </div>
-    </main>
+    </main> --}}
 @endsection

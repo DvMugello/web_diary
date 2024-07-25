@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 Route::resource('/Register', RegisterController::class);
-Route::resource('/Main', PostController::class)->middleware('auth');
+Route::resource('/Main/user', PostController::class)->middleware('auth');
 
 Route::post('/profil',[ProfilController::class,'authenticate'])->middleware('auth');
 Route::get('/profil', function () {
@@ -30,15 +30,10 @@ Route::get('/profil', function () {
     ]);
 });
 
-Route::get('/Admin',[AdminController::class, 'index'])->middleware('role');
+Route::get('/Admin',[AdminController::class, 'index'])->middleware('auth');
 
 // Route::get('add-media-to-library',function(){
 // Profile::create()
 // ->addMedia(storage_path('public/profil-images/avatar.jpg'))
 // ->toMediaCollection();
 // });
-
-// Route::get('add-media-from-request',[ProfileController::class,'create']);
-// Route::post('add-media-from-request',[ProfileController::class,'store']);
-Route::get('/avatar',[ProfileController::class,'create']);
-Route::get('/avatar',[ProfileController::class,'store']);

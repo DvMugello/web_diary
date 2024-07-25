@@ -18,7 +18,7 @@
                     @endif
 
                     <div class="table-responsive small col-lg-auto m-5">
-                        <a href="{{ route('Main.create') }}" class="btn btn-primary mb-2 mt-3"
+                        <a href="{{ route('user.create')}}" class="btn btn-primary mb-2 mt-3"
                             style="font-family: 'Times New Roman', Times, serif">Create New Diary</a>
                         <table class="table table-striped table-sm mb-md-5 col-lg-auto">
                             <thead>
@@ -38,11 +38,11 @@
                                         <td>{!! $post->body !!}</td>
                                         <td>{{ $post->date_format }}</td>
 
-                                        <td><a href="{{ route('Main.show', ['Main']) }}" class="badge bg-info"><i
+                                        <td><a href="{{ route('user.show')}}" class="badge bg-info"><i
                                                     class="bi bi-eye"></i></a></td>
-                                        <td><a href="{{ route('Main.edit', $post->id) }}" class="badge bg-warning"><i
+                                        <td><a href="{{ route('user.edit') }}" class="badge bg-warning"><i
                                                     class="bi bi-plus-circle"></i></a></td>
-                                        <form action="{{ route('Main.destroy', $post->id) }}" method="post" class="d-inline">
+                                        <form action="{{ route('user.destroy')}}" method="post" class="d-inline">
                                             @method('delete')
                                             @csrf
                                             <td>

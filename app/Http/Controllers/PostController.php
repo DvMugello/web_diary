@@ -44,7 +44,7 @@ class PostController extends Controller
 
         Post::create($validateData);
 
-        return redirect('/Main')->with('success','New Diary has been added!');
+        return redirect('/Main/user')->with('success','New Diary has been added!');
     }
 
     /**
@@ -92,8 +92,8 @@ class PostController extends Controller
 
         Post::where('id',$post->id)->update($validateData);
 
-        return redirect ('/Main')->with('success','Diary has been updated!');
-        
+        return redirect ('/Main/user')->with('success','Diary has been updated!');
+
     }
 
     /**
@@ -106,6 +106,6 @@ class PostController extends Controller
         // return redirect ('/Main')->with('success','Diary has been deleted!');
 
         Post::destroy($post->id);
-        return redirect ('/Main')->with('success','Diary has been deleted!');
+        return redirect ('/Main/user')->with('success','Diary has been deleted!');
     }
 }
