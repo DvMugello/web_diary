@@ -24,12 +24,12 @@
                                         {{-- <h1>{{ auth()->user()->get_role }}</h1> --}}
 
 
-                                        <a href="{{ route('user.show') }}" class="btn btn-success"><i
+                                        <a href="{{ route('user.index') }}" class="btn btn-success"><i
                                                 class="bi bi-arrow-left"></i>
                                             Back To
                                             All My Posts</a>
 
-                                        <a href="{{ route('Main.edit', ['Main']) }}" class="btn btn-warning"><i
+                                        <a href="{{ route('user.edit',$post->id)}}" class="btn btn-warning"><i
                                                 class="bi bi-plus-circle"></i>Edit</a>
                                         @method('delete')
                                         @csrf

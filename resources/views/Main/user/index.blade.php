@@ -38,11 +38,11 @@
                                         <td>{!! $post->body !!}</td>
                                         <td>{{ $post->date_format }}</td>
 
-                                        <td><a href="{{ route('user.show')}}" class="badge bg-info"><i
+                                        <td><a href="{{ route('user.show',['user'])}}" class="badge bg-info"><i
                                                     class="bi bi-eye"></i></a></td>
-                                        <td><a href="{{ route('user.edit') }}" class="badge bg-warning"><i
+                                        <td><a href="{{ route('user.edit',$post->id)}}" class="badge bg-warning"><i
                                                     class="bi bi-plus-circle"></i></a></td>
-                                        <form action="{{ route('user.destroy')}}" method="post" class="d-inline">
+                                        <form action="{{ route('user.destroy', $post->id) }}" method="post" class="d-inline">
                                             @method('delete')
                                             @csrf
                                             <td>

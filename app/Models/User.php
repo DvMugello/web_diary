@@ -67,7 +67,7 @@ class User extends Authenticatable implements HasMedia
     public function getPhoto($bg = 'F98502', $color = 'FFF')
     {
         $buildQueryString = str_replace(' ', '+', $this->name);
-        $mediaItems = $this->getFirstMediaUrl('avatar');
+        $mediaItems = $this->getFirstMediaUrl('image');
         $imgDefault = "https://ui-avatars.com/api/?background=$bg&color=$color&name={$buildQueryString}";
 
         if ($mediaItems) {

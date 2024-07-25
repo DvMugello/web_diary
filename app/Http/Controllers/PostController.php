@@ -101,11 +101,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        // Post::destroy($post->id);
+        Post::destroy($post->id);
 
         // return redirect ('/Main')->with('success','Diary has been deleted!');
 
-        Post::destroy($post->id);
+        // $post->delete();
+
         return redirect ('/Main/user')->with('success','Diary has been deleted!');
     }
 }

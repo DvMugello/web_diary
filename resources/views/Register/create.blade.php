@@ -48,7 +48,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="image" class="form-label">Image Profile</label>
-                        <input type="file" id="image" name="image"
+                        <input type="file" id="image" name="image" 
                             class="form-control dropify @error('image')
                         is-invalid
                         @enderror">

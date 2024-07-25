@@ -19,7 +19,7 @@
 
                     <div class="table-responsive small col-lg-auto">
                         <table class="table table-striped table-sm">
-                            <form method="post" action="{{ route('Main.update', ['Main']) }}" enctype="multipart/form" class="mb-5">
+                            <form method="post" action="{{ route('user.update',['user']) }}" enctype="multipart/form" class="mb-5">
                                 @method('put')
                                 @csrf
                                 <div class="mb-3">

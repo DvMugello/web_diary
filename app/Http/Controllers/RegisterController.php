@@ -9,9 +9,9 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 // $role = Role::create(['name' => 'admin']);
-// $role = Role::create(['name' => 'writer']);
 // $permission = Permission::create(['name' => 'showing user']);
 
+// $role = Role::create(['name' => 'writer']);
 // $permission = Permission::create(['name' => 'write diary']);
 
 // $role->givePermissionTo($permission);
@@ -45,7 +45,7 @@ class RegisterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, User $user, Role $role)
+    public function store(Request $request, User $user)
     {
         $validateData=$request->validate([
             'name'=>'required|max:255',
@@ -122,7 +122,7 @@ class RegisterController extends Controller
         // $rules['password']= Hash::make($rules['password']);
 
         $rules = [
-            'name' => 'required|max:255',
+            'name' => 'required',
             'username'=>'required|min:3|max:255|unique:users',
             'email'=>'required|email|unique:users' . $id,
             'password'=>'required|min:5|max:255',
